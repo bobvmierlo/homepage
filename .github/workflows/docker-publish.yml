@@ -10,7 +10,7 @@ on:
     - cron: '20 0 * * *'
   push:
     branches:
-      - main
+      - private
       - feature/**
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
@@ -18,7 +18,7 @@ on:
       - 'docs/**'
       - 'mkdocs.yml'
   pull_request:
-    branches: [ "main" ]
+    branches: [ "private" ]
     paths-ignore:
       - 'docs/**'
       - 'mkdocs.yml'
