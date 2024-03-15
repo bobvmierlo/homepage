@@ -101,6 +101,7 @@ const components = {
   speedtest: dynamic(() => import("./speedtest/component")),
   stash: dynamic(() => import("./stash/component")),
   strelaysrv: dynamic(() => import("./strelaysrv/component")),
+  synologyvpn: dynamic(() => import("./synologyvpn/component")),
   tailscale: dynamic(() => import("./tailscale/component")),
   tandoor: dynamic(() => import("./tandoor/component")),
   tautulli: dynamic(() => import("./tautulli/component")),
