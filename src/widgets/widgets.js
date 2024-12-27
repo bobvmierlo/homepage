@@ -109,6 +109,7 @@ import stocks from "./stocks/widget";
 import strelaysrv from "./strelaysrv/widget";
 import swagdashboard from "./swagdashboard/widget";
 import suwayomi from "./suwayomi/widget";
+import synologyvpn from "./synologyvpn/widget";
 import tailscale from "./tailscale/widget";
 import tandoor from "./tandoor/widget";
 import tautulli from "./tautulli/widget";
@@ -246,6 +247,7 @@ const widgets = {
   strelaysrv,
   swagdashboard,
   suwayomi,
+  synologyvpn,
   tailscale,
   tandoor,
   tautulli,
