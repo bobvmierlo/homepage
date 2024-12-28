@@ -1,5 +1,6 @@
 import synologyProxyHandler from "../../utils/proxy/handlers/synology";
 
+// Try other API endpoint
 const widget = {
   // Variables to be filled at runtime
   api: "{url}/webapi/{cgiPath}?api={apiName}&version={maxVersion}&method={apiMethod}",
