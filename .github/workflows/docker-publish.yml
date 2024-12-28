@@ -6,13 +6,9 @@ name: Docker
 # documentation.
 
 on:
-  schedule:
-    - cron: '20 0 * * *'
   push:
     branches:
       - main
-      - feature/**
-      - dev
     tags: [ 'v*.*.*' ]
     paths-ignore:
       - 'docs/**'
