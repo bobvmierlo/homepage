@@ -22,9 +22,9 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       {vpnStatus.length > 0 ? (
-        vpnStatus.map((config, index) => (
+        vpnStatus.map((config) => (
           <Block
-            key={index}
+            key={config.confname} // Use a unique identifier for the key
             label={t("VPN connection status")}
             value={`${config.status} (${config.confname})`}
           />
