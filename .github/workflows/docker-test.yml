@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
 
 env:
-  IMAGE_NAME: ${{ github.repository }}-test
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   pre-commit:
