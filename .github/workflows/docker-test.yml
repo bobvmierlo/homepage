@@ -6,8 +6,6 @@ name: Docker-testbranch
 # documentation.
 
 on:
-  schedule:
-    - cron: '20 0 * * *'
   push:
     branches:
       - test
