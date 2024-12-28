@@ -7,18 +7,31 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
-  const { data: gatewayData, error: gatewayError } = useWidgetAPI(widget, "gatewayList");
+  const { data: vpnData, error: vpnError } = useWidgetAPI(widget, "vpnStatus");
 
-  if (gatewayError) {
-    return <Container service={service} error={gatewayError} />;
+  if (vpnError) {
+    return <Container service={service} error={vpnError} />;
   }
 
-  const configs = gatewayData?.data?.configs || [];
-  const isVPNConnected = configs.some((config) => config.class === "vpn-client");
+  const results = vpnData?.data?.result?.[0]?.data || [];
+  const vpnStatus = results.map((config) => ({
+    status: config.status,
+    confname: config.confname,
+  }));
 
   return (
     <Container service={service}>
-      <Block label="VPN connection status" value={isVPNConnected ? t("Connected") : t("Disconnected")} />
+      {vpnStatus.length > 0 ? (
+        vpnStatus.map((config, index) => (
+          <Block
+            key={index}
+            label={t("VPN connection status")}
+            value={`${config.status} (${config.confname})`}
+          />
+        ))
+      ) : (
+        <Block label={t("VPN connection status")} value={t("No VPN connections found")} />
+      )}
     </Container>
   );
 }

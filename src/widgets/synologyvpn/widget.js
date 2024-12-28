@@ -6,10 +6,28 @@ const widget = {
   proxyHandler: synologyProxyHandler,
 
   mappings: {
-    gatewayList: {
-      apiName: "SYNO.Core.Network.Router.Gateway.List",
-      apiMethod: "get&iptype=ipv4&type=wan",
-      endpoint: "gatewayList",
+    vpnStatus: {
+      apiName: "SYNO.Entry.Request",
+      apiMethod: "request",
+      endpoint: "vpnStatus",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: {
+        api: "SYNO.Entry.Request",
+        method: "request",
+        version: 1,
+        stopwhenerror: false,
+        compound: JSON.stringify([
+          {
+            api: "SYNO.Core.Network.VPN.OpenVPNWithConf",
+            method: "list",
+            version: 1,
+            additional: ["status"],
+          },
+        ]),
+      },
     },
   },
 };
